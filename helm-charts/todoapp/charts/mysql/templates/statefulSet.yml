@@ -18,11 +18,11 @@ spec:
       - name: {{ .Chart.Name }}
         image: {{ .Values.image.repo}}:{{ .Values.image.tag }}
         env:
-        {{- range $k, $v := .Values.secret }}
+        {{- range $k, $v := .Values.secrets }}
         - name: {{ $k }}
           valueFrom:
             secretKeyRef:
-              name: {{ .Chart.Name }}-secrets
+              name: {{ $.Chart.Name }}-secrets
               key: {{ $k }}
         {{- end }}
         - name: MYSQL_DATABASE
