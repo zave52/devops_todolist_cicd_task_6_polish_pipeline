@@ -23,12 +23,6 @@ spec:
         volumeMounts:
         - name: data
           mountPath: /app/data
-        - name: app-secrets-volume
-          mountPath: "/app/secrets"
-          readOnly: true
-        - name: app-config-volume
-          mountPath: "/app/configs"
-          readOnly: true
         resources:
           requests:
             memory: {{ .Values.todoapp.resources.requests.memory }}
@@ -85,9 +79,3 @@ spec:
       - name: data
         persistentVolumeClaim:
           claimName: pvc-data
-      - name: app-secrets-volume
-        secret:
-          secretName:  {{ .Chart.Name }}-secret
-      - name: app-config-volume
-        configMap:
-          name:  {{ .Chart.Name }}-config
