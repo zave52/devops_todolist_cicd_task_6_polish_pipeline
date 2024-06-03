@@ -34,6 +34,11 @@ jobs:
           name: helm-artifacts
           path: .
 
+# ls workspace
+      - name: List workspace
+        run: |
+          ls -la
+
       - uses: actions/download-artifact@v4
         with:
           name: kind-cluster
