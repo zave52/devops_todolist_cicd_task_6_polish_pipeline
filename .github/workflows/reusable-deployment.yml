@@ -56,8 +56,8 @@ jobs:
 
       - name: Deploy helm to Development
         run: |
-          mysql_root_pwd="$(MYSQL_ROOT_PASSWORD)"
-          mysql_pwd="$(MYSQL_PASSWORD)"
+          mysql_root_pwd="$MYSQL_ROOT_PASSWORD"
+          mysql_pwd="$MYSQL_PASSWORD"
 
           helm upgrade --install --atomic --wait --timeout 360s --debug ${{ inputs.helm-release-name }} ./todoapp-*.tgz \
           -f ${{ inputs.helm-values-path }} \
