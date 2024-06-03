@@ -9,6 +9,7 @@ This is a todo list web application with basic features of most web apps, i.e., 
 
 Try it out by installing the requirements (the following commands work only with Python 3.8 and higher, due to Django 4):
 
+
 ```
 pip install -r requirements.txt
 ```
