@@ -88,7 +88,7 @@ jobs:
           kubectl get pods -n todoapp
           kubectl get pods -n mysql
 
-          kubectl get deployments -n mysql
-          kubectl describe deployment mysql -n mysql
-          kubectl describe pod mysql-0 -n mysql
+          kubectl get statefulset -n mysql
+          kubectl describe statefulset mysql -n mysql
           kubectl logs mysql-0 -n mysql
+          kubectl describe pod mysql-0 -n mysql
