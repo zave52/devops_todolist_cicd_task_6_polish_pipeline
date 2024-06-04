@@ -82,6 +82,8 @@ jobs:
           --set todoapp.secrets.DB_HOST="mysql-0.mysql.mysql.svc.cluster.local" \
           --set todoapp.image.tag=${{ github.sha }}
 
+      - name: Debug
+        run: |
           kubectl get pods -n todoapp
           kubectl get pods -n mysql
 
