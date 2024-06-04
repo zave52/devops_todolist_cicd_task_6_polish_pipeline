@@ -36,7 +36,14 @@ Docker CI Job Requirements:
 1. Update your forked repository with your DockerHub username and password.
     1. Add Corresponding secrets to the repository.
 2. Update DockerImageName with your DockerHub image repository name
-3. Add a resubable workflow to deploy to kubernetes cluster.
-    1.
-6. Create a Pull Request with the changes.
-7. Pull Requests description should also contain a reference to a workflow run with successfull Docker CI job.
+3. Use Matrix to run unit tests on different Python versions (3.8, 3.9).
+4. Use Matrix to run unit tests on different OS types: ubuntu and windows.
+5. Add input variables
+    1. Input variable to choose which artifact from the matrix to deploy. (windows-3.8, ubuntu-3.9, etc)
+6. Add branch protection to the main branch in your fork.
+7. Add mandatory pull request and Python CI job status checks for PRs.
+8. Add Manual Approval for STG environment.
+9. Allow to run only one workflow per pull request.
+10. New runs should cancel the previous runs.
+11. Create a Pull Request with the changes.
+12. Pull Requests description should also contain a reference to a workflow run with successfull workflow execution.
