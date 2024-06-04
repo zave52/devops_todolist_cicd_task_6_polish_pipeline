@@ -42,18 +42,6 @@ spec:
           limits:
             cpu: {{ .Values.resources.limits.cpu }}
             memory: {{ .Values.resources.limits.memory }}
-        livenessProbe:
-          exec:
-            command: ["mysqladmin", "ping"]
-          initialDelaySeconds: 30
-          periodSeconds: 10
-          timeoutSeconds: 5
-        readinessProbe:
-          exec:
-            command: ["mysqladmin", "ping"]
-          initialDelaySeconds: 5
-          periodSeconds: 2
-          timeoutSeconds: 1
       volumes:
       - name: config-map
         configMap:
