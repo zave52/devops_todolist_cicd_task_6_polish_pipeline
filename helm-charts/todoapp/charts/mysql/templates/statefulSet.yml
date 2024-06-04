@@ -22,7 +22,7 @@ spec:
         - name: {{ $k }}
           valueFrom:
             secretKeyRef:
-              name: {{ $.Chart.Name }}-secrets
+              name: {{ $.Chart.Name }}-secret
               key: {{ $k }}
         {{- end }}
         - name: MYSQL_DATABASE
