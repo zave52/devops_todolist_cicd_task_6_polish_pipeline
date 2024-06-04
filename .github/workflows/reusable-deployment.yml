@@ -70,7 +70,7 @@ jobs:
 
       - name: Deploy helm to Development
         run: |
-          helm upgrade --install --wait --timeout 720s --debug ${{ inputs.helm-release-name }} ./todoapp-*.tgz \
+          helm upgrade --install --wait --timeout 360s --debug ${{ inputs.helm-release-name }} ./todoapp-*.tgz \
           -f ${{ inputs.helm-values-path }} \
           --set mysql.secrets.MYSQL_ROOT_PASSWORD="12345" \
           --set mysql.secrets.MYSQL_USER="app_user" \
