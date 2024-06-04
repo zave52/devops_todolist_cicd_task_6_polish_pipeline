@@ -87,4 +87,3 @@ jobs:
         env:
           MYSQL_ROOT_PASSWORD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
           MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}
-
