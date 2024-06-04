@@ -61,3 +61,4 @@ spec:
           name: {{ .Chart.Name }}
       - name: data
         emptyDir: {}
+          medium: "Memory"
