@@ -60,5 +60,5 @@ spec:
         configMap:
           name: {{ .Chart.Name }}
       - name: data
-        emptyDir: {}
-          medium: "Memory"
+        emptyDir:
+          medium: Memory
