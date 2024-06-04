@@ -86,6 +86,6 @@ jobs:
           kubectl get pods -n mysql
 
           kubectl get deployments -n mysql
-          kubctl describe deployment mysql -n mysql
+          kubectl describe deployment mysql -n mysql
           kubectl describe pod mysql-0 -n mysql
           kubectl logs mysql-0 -n mysql
