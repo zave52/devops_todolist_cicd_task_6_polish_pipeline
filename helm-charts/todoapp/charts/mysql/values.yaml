@@ -1,6 +1,6 @@
 namespace: mysql
 
-replicas: 2
+replicas: 1
 image:
   repo: mysql
   tag: "8.0"
