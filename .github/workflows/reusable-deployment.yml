@@ -72,12 +72,12 @@ jobs:
         run: |
           helm upgrade --install --atomic --wait --timeout 720s --debug ${{ inputs.helm-release-name }} ./todoapp-*.tgz \
           -f ${{ inputs.helm-values-path }} \
-          --set mysql.secrets.MYSQL_ROOT_PASSWORD="${{ secrets.MYSQL_ROOT_PASSWORD }}" \
-          --set mysql.secrets.MYSQL_USER="${{ secrets.MYSQL_USER }}" \
-          --set mysql.secrets.MYSQL_PASSWORD="${{ secrets.MYSQL_PASSWORD }}" \
-          --set todoapp.secrets.SECRET_KEY="${{ secrets.APP_SECRET_KEY }}" \
-          --set todoapp.secrets.DB_NAME="${{ secrets.APP_DB_NAME }}" \
-          --set todoapp.secrets.DB_USER="${{ secrets.MYSQL_USER }}" \
-          --set todoapp.secrets.DB_PASSWORD="${{ secrets.MYSQL_PASSWORD }}" \
-          --set todoapp.secrets.DB_HOST="${{ secrets.APP_DB_HOST }}" \
+          --set mysql.secrets.MYSQL_ROOT_PASSWORD="12345" \
+          --set mysql.secrets.MYSQL_USER="app_user" \
+          --set mysql.secrets.MYSQL_PASSWORD="1234" \
+          --set todoapp.secrets.SECRET_KEY="asdasdasdadasdadddasd" \
+          --set todoapp.secrets.DB_NAME="app_db" \
+          --set todoapp.secrets.DB_USER="app_user" \
+          --set todoapp.secrets.DB_PASSWORD="1234" \
+          --set todoapp.secrets.DB_HOST="mysql-0.mysql.mysql.svc.cluster.local" \
           --set todoapp.image.tag=${{ github.sha }}
