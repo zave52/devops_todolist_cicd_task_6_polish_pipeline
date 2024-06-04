@@ -39,10 +39,6 @@ jobs:
           name: kind-cluster
           path: .
 
-      - name: List workspace
-        run: |
-          ls -la
-
       - name: Set Up Helm
         uses: azure/setup-helm@v4.2.0
 
@@ -82,13 +78,3 @@ jobs:
           --set todoapp.secrets.DB_HOST="${{ secrets.APP_DB_HOST }}" \
           --set todoapp.image.tag=${{ github.sha }}
 
-      - name: Debug
-        if: always()
-        run: |
-          kubectl get pods -n todoapp
-          kubectl get pods -n mysql
-
-          kubectl get statefulset -n mysql
-          kubectl describe statefulset mysql -n mysql
-          kubectl logs mysql-0 -n mysql
-          kubectl describe pod mysql-0 -n mysql
