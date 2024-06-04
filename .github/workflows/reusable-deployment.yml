@@ -83,6 +83,7 @@ jobs:
           --set todoapp.image.tag=${{ github.sha }}
 
       - name: Debug
+        if: always()
         run: |
           kubectl get pods -n todoapp
           kubectl get pods -n mysql
