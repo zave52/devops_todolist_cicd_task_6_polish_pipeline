@@ -35,12 +35,12 @@ Extend the project's GitHub Actions workflow by integrating Docker to build and 
 This CI/CD enhancement involves several key tasks:
 
 1. Update your forked repository with your DockerHub username and password.
-    a. Add corresponding secrets to the repository.
+    1. Add corresponding secrets to the repository.
 2. Update `DockerImageName` with the DockerHub image repository name.
 3. Use Matrix to run unit tests on different Python versions (3.8, 3.9).
 4. Use Matrix to run unit tests on different OS types: Ubuntu and Windows.
 5. Add input variables:
-    a. Input variable to choose which artifact from the matrix to deploy. (windows-3.8, ubuntu-3.9, etc).
+    1. Input variable to choose which artifact from the matrix to deploy. (windows-3.8, ubuntu-3.9, etc).
 6. Add branch protection to the main branch in your fork.
 7. Add mandatory pull requests and Python CI job status checks for PRs.
 8. Add Manual Approval for the STG environment.
