@@ -48,4 +48,7 @@ This CI/CD enhancement involves several key tasks:
 10. Allow to run only one workflow per pull request (concurrency).
 11. New runs should cancel the previous runs.
 12. Create a Pull Request with the changes.
-13. Pull Requests description should also contain a reference to a workflow run with successful workflow execution.
+13. Pull Requests description should also contain a reference to a workflow run with successful
+workflow execution.
+14. Provide screenshots confirming that branch protection and status checks are working as expected.
+15. Provide a screenshot confirming `staging` deployment requires manual approval.
