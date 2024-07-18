@@ -37,18 +37,19 @@ This CI/CD enhancement involves several key tasks:
 1. Update your forked repository with your DockerHub username and password.
     1. Add corresponding secrets to the repository.
 2. Update `DockerImageName` with the DockerHub image repository name.
-3. Use Matrix to run unit tests on different Python versions (3.8, 3.9).
-4. Use Matrix to run unit tests on different OS types: Ubuntu and Windows.
-5. You should have the ability to start the workflow manually.
-6. Add input variables for the manual workflow start:
+3. Add environment secrets for `development` and `staging` environments for your forked repository.
+4. Use Matrix to run unit tests on different Python versions (3.8, 3.9).
+5. Use Matrix to run unit tests on different OS types: Ubuntu and Windows.
+6. You should have the ability to start the workflow manually.
+7. Add input variables for the manual workflow start:
     1. Input variables to choose which artifact from the matrix to deploy. (windows-3.8, ubuntu-3.9, etc).
-7. Add branch protection to the main branch in your fork.
-8. Add mandatory pull requests and `Python CI` job status checks for PRs.
-9. Add Manual Approval for the `staging` environment.
-10. Allow to run only one workflow per pull request (concurrency).
-11. New runs should cancel the previous runs.
-12. Create a Pull Request with the changes.
-13. Pull Requests description should also contain a reference to a workflow run with successful
+8. Add branch protection to the main branch in your fork.
+9. Add mandatory pull requests and `Python CI` job status checks for PRs.
+10. Add Manual Approval for the `staging` environment.
+11. Allow to run only one workflow per pull request (concurrency).
+12. New runs should cancel the previous runs.
+13. Create a Pull Request with the changes.
+14. Pull Requests description should also contain a reference to a workflow run with successful
 workflow execution.
-14. Provide screenshots confirming that branch protection and status checks are working as expected.
-15. Provide a screenshot confirming `staging` deployment requires manual approval.
+15. Provide screenshots confirming that branch protection and status checks are working as expected.
+16. Provide a screenshot confirming `staging` deployment requires manual approval.
