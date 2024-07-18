@@ -41,11 +41,11 @@ This CI/CD enhancement involves several key tasks:
 4. Use Matrix to run unit tests on different OS types: Ubuntu and Windows.
 5. You should have the ability to start the workflow manually.
 6. Add input variables for the manual workflow start:
-    1. Input variable to choose which artifact from the matrix to deploy. (windows-3.8, ubuntu-3.9, etc).
+    1. Input variables to choose which artifact from the matrix to deploy. (windows-3.8, ubuntu-3.9, etc).
 7. Add branch protection to the main branch in your fork.
-8. Add mandatory pull requests and Python CI job status checks for PRs.
-9. Add Manual Approval for the STG environment.
-10. Allow to run only one workflow per pull request.
+8. Add mandatory pull requests and `Python CI` job status checks for PRs.
+9. Add Manual Approval for the `staging` environment.
+10. Allow to run only one workflow per pull request (concurrency).
 11. New runs should cancel the previous runs.
 12. Create a Pull Request with the changes.
 13. Pull Requests description should also contain a reference to a workflow run with successful workflow execution.
