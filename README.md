@@ -31,7 +31,7 @@ You can now browse the [API](http://localhost:8000/api/) or start on the [landin
 
 ## Task
 
-Extend the project's GitHub Actions workflow by integrating Docker to build and push images to DockerHub. 
+Extend the project's GitHub Actions workflow by integrating Docker to build and push images to DockerHub.
 This CI/CD enhancement involves several key tasks:
 
 1. Update your forked repository with your DockerHub username and password.
