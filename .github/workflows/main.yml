@@ -20,6 +20,10 @@ on:
           - 'windows-3.8'
           - 'windows-3.9'
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 env:
   DockerImageName: todoapp
 
