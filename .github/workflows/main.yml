@@ -12,13 +12,13 @@ on:
       deploy_target:
         description: 'Choose which matrix combination to deploy'
         required: true
-        default: 'ubuntu-3.9'
+        default: 'ubuntu-latest-3.9'
         type: choice
         options:
-          - 'ubuntu-3.8'
-          - 'ubuntu-3.9'
-          - 'windows-3.8'
-          - 'windows-3.9'
+          - 'ubuntu-latest-3.8'
+          - 'ubuntu-latest-3.9'
+          - 'windows-latest-3.8'
+          - 'windows-latest-3.9'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -73,18 +73,18 @@ jobs:
       - name: Upload python artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: python-artifacts
+          name: python-artifacts-${{ matrix.OsTypes }}-${{ matrix.PythonVersion }}
           path: .
 
       - name: Upload helm artifacts
-        if: github.ref_name == 'main'
+        if: github.ref_name == 'main' && matrix.OsTypes == 'ubuntu-latest' && matrix.PythonVersion == '3.9'
         uses: actions/upload-artifact@v4
         with:
           name: helm-artifacts
           path: ${{ github.workspace }}/helm-charts
 
       - name: Upload kind cluster artifact
-        if: github.ref_name == 'main'
+        if: github.ref_name == 'main' && matrix.OsTypes == 'ubuntu-latest' && matrix.PythonVersion == '3.9'
         uses: actions/upload-artifact@v4
         with:
           name: kind-cluster
@@ -97,10 +97,19 @@ jobs:
     needs: python-ci
     steps:
 
+    - name: Determine artifact name
+      id: artifact
+      run: |
+        if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+          echo "artifact_name=python-artifacts-${{ github.event.inputs.deploy_target }}" >> $GITHUB_OUTPUT
+        else
+          echo "artifact_name=python-artifacts-ubuntu-latest-3.9" >> $GITHUB_OUTPUT
+        fi
+
     - uses: actions/download-artifact@v4
       name: Download python artifacts
       with:
-        name: python-artifacts
+        name: ${{ steps.artifact.outputs.artifact_name }}
         path: .
 
     - name: Login to Docker Hub
