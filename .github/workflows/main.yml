@@ -7,6 +7,18 @@ on:
     branches: ["main"]
   pull_request:
     branches: ["main"]
+  workflow_dispatch:
+    inputs:
+      deploy_target:
+        description: 'Choose which matrix combination to deploy'
+        required: true
+        default: 'ubuntu-3.9'
+        type: choice
+        options:
+          - 'ubuntu-3.8'
+          - 'ubuntu-3.9'
+          - 'windows-3.8'
+          - 'windows-3.9'
 
 env:
   DockerImageName: todoapp
